@@ -29,8 +29,13 @@ for edge in edges:
 
 G = nx.read_graphml(path)
 #access edge sttributes: https://networkx.github.io/documentation/stable/tutorial.html#accessing-edges-and-neighbors
-
+#<data key="d21" xml:space="preserve"><![CDATA[Dem BMVg  ist die Bw nachgeordnet.]]></data>
+for s in G.edges.data('key=d31'):
+    print('****S***', s)
+#access node with readable info
+content_n0 = G.nodes['n0']  
+print(content_n0)
 #nx.draw(G)
 #plt.show()
-print(G.nodes('n61'), G.edges('n61'))
+#print(G.nodes('n61'), G.edges('n61'))
 #print(G.number_of_nodes(), G.number_of_edges())
