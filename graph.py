@@ -13,7 +13,7 @@ with open(path) as file:
 
     nodes = soup.findAll("key",{"for":"node"})
     edges = soup.findAll("key",{"for":"edge"})
-    print("edges ", edges)
+    #print("edges ", edges)
 
 #TODO: Namen mit id speichern
 #print " --- node attr names --- "
@@ -23,13 +23,14 @@ for node in nodes:
     	n_names.append({'id': node['id'], 'attr':node['attr.name']})
 
 for edge in edges:
-    print (edge['id'])
+    #print (edge['id'])
     if edge.has_attr('attr.name'):
     	e_names.append({'id': edge['id'], 'attr':edge['attr.name']})
 
-print (n_names, e_names)
 G = nx.read_graphml(path)
+#access edge sttributes: https://networkx.github.io/documentation/stable/tutorial.html#accessing-edges-and-neighbors
+
 #nx.draw(G)
 #plt.show()
-#print(G.nodes(), G.edges)
+print(G.nodes('n61'), G.edges('n61'))
 #print(G.number_of_nodes(), G.number_of_edges())
